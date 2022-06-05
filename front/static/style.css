@@ -1,0 +1,302 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: #95DCE5;
+}
+
+nav {
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #85BEC6;
+    color: white;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+nav a {
+
+    color: rgb(34, 33, 33);
+}
+
+
+nav a:hover {
+
+    color: rgb(65, 65, 65);
+}
+
+
+nav * {
+    margin: 0 10px;
+
+}
+
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(./images/hero.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+}
+
+#products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+#products * {
+    margin: 10px;
+}
+
+.productbox img {
+    height: 300px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.productbox {
+    text-align: center;
+    
+}
+
+.productbox a {
+    color: black;
+}
+
+#hero-box {
+    max-width: 70vh;
+    text-align: center;
+}
+
+#createuser {
+    margin: 10px;
+    padding: 30px;
+    background-color: #97D4DC;
+    border-radius: 45px;
+}
+
+#createuser form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#createuser form * {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#productdetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    color: white;
+}
+
+.nf {
+    text-align: center;
+    color: white;
+    margin: 20px;
+}
+
+#productdetail > button {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.detailboxboxbox {
+    padding: 30px;
+    max-height: 100%;
+}
+
+.detailboxbox {
+    margin-top: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;   
+    align-items: center;
+    color: black;
+    text-align: center;
+    background-color: rgb(36, 221, 246);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 20px;
+}
+
+/* @media only screen and (max-width: 720px) {
+    body {
+      background-color: lightblue;
+    }
+  } */
+
+.detailboxbox img {
+    padding: 10px;
+
+    height: 400px;
+
+}
+
+.detailboxbox p {
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    width: 50%;
+}
+
+.containeradmin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.containeradmin div {
+    width: 44vw;
+}
+
+
+#users {
+    background-color: rgba(128, 128, 128, 0.295);
+    margin: 10px;
+    border-radius: 10px;
+    padding: 50px 0;
+}
+
+#products-admin {
+    background-color: rgba(128, 128, 128, 0.295);
+    margin: 10px;
+    border-radius: 10px;
+    color: black;
+    padding: 50px 0;
+    
+
+}
+
+
+
+
+.userbox {
+    margin: 20px 0;
+}
+
+
+.filterbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.product-del-button {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.del-users-license {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.searchbar input {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.containerlogin{
+    text-align: center;
+}
+
+#formlogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+
+
+}
+
+#formlogin input {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.center {
+    text-align: center;
+}
+
+.tttttitle {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+
+.adminformsz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #85BEC6;
+}
+.adminformsz a {
+    color: black;
+}
+
+.adminformsz a:hover {
+    color: blue;
+}
+
+#editproductform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #85BEC6;
+    
+}

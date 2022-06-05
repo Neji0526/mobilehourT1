@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\front"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "front",
+		"liveServer.settings.port": 5501
+	}
+}
