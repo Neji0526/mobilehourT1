@@ -73,7 +73,7 @@ productController.delete('/:id',(req,res)=>{
 productController.post('/create',(req,res)=>{
     let product = req.body
     console.log(product)
-    createProduct(validator.escape(product.name),validator.escape(product.feature_id),validator.escape(product.price),validator.escape(product.colour),validator.escape(product.year),validator.escape(product.image),validator.escape(product.stock))
+    createProduct(validator.escape(product.name),product.feature_id,validator.escape(product.price),validator.escape(product.colour),validator.escape(product.year),validator.escape(product.image),validator.escape(product.stock))
     .then(([results])=>{
         res.status(200).json(results)
     }).catch((err)=>{
@@ -100,7 +100,7 @@ productController.post('/update',(req,res)=>{
 productController.post('/purchase',(req,res)=>{
     let product = req.body
     console.log(product)
-    createProductPurchase(validator.escape(product.id),validator.escape(product.fname),validator.escape(product.lname),validator.escape(product.mobile),validator.escape(product.address1),validator.escape(product.address2))
+    createProductPurchase(product.id,validator.escape(product.fname),validator.escape(product.lname),validator.escape(product.mobile),validator.escape(product.address1),validator.escape(product.address2))
     .then(([results])=>{
         res.status(200).json(results)
     }).catch((err)=>{

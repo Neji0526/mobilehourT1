@@ -39,7 +39,7 @@ function sendData(e){
   }
   `
 
-  fetch("http://172.30.211.39:8000/api/products/create", {
+  fetch("/api/products/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

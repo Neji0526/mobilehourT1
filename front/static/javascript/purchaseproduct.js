@@ -75,7 +75,7 @@ fetch("/api/products/purchase", {
     body: JSON.stringify(body)
 }).then(res => res.json()).then(product => {
     window.alert("Purchase Successful");
-    window.location.href = "frontend/index.html";
+    window.location.href = "/frontend/index.html";
 })
 })
 }
