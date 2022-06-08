@@ -8,7 +8,7 @@ console.log(id);
 
 
 
-fetch("http://localhost:8000/api/products/" + id)
+fetch("/api/products/" + id)
 .then(res => res.json()).then(product => {
 
 
@@ -16,7 +16,7 @@ fetch("http://localhost:8000/api/products/" + id)
         document.getElementById("productdetail").innerHTML = `
 
         <h1 class="nf">Product not found</h1>
-        <button><a href="/">Return Home</a></button>
+        <button><a href="/frontend">Return Home</a></button>
         `
     } else {
 
@@ -49,7 +49,7 @@ fetch("http://localhost:8000/api/products/" + id)
         "soh": "${document.getElementById("stock").value}"
     }`
    
-    fetch("http://localhost:8000/api/products/update", {
+    fetch("/api/products/update", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -57,7 +57,7 @@ fetch("http://localhost:8000/api/products/" + id)
         body: body
     }).then(res => res.json()).then(product => {
         console.log(product);
-        // window.location.href = "/index.html";
+        window.location.href = "/frontend/index.html";
     })
     })
     }

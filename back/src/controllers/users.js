@@ -16,7 +16,15 @@ userController.get('/all',(req,res)=>{
     
 })
 
-
+//session user
+userController.get('/session/status',(req,res)=>{
+    if (req.session.user){
+        res.status(200).json(req.session.user)
+    } else {
+        res.status(200).json({})
+    }
+    
+})
 
 
 userController.post('/create',(req,res)=>{
@@ -66,15 +74,6 @@ userController.get('/:id',(req,res)=>{
     
 })
 
-//session user
-userController.get('/status',(req,res)=>{
-    let status = req.session.user
-    console.log(status)
-    .then(([results])=>{
-        res.status(200).json(results)
-    })
-    
-})
 
 
 userController.delete('/:id',(req,res)=>{
@@ -98,9 +97,10 @@ userController.post('/login',(req,res)=>{
                     id: user.id,
                     role: user.role,
                 }
-                
+                res.status(200).json({data: 'login successful'})
                 console.log(req.session.user)
-                res.status(200).json("logged in")
+
+             
                 
             } else {
                 res.status(401).json("wrong password")
@@ -114,7 +114,7 @@ userController.post('/login',(req,res)=>{
     })
 })
 
-userController.post('/logout',(req,res)=>{
+userController.post('/logout/user',(req,res)=>{
     req.session.destroy()
     res.status(200).json("logged out")
 
@@ -125,7 +125,7 @@ userController.post('/update',(req,res)=>{
     let id = req.params.id
     console.log(body)
     console.log(id)
-    updateUserById(body.id,body.firstname,body.lastname,body.role,body.username)
+    updateUserById(body.id,validator.escape(body.firstname),validator.escape(body.lastname),validator.escape(body.role),validator.escape(body.username))
     .then(([results])=>{
         res.status(200).json(results)
     })

@@ -9,6 +9,9 @@ body {
     background-color: #95DCE5;
 }
 
+
+
+
 nav {
     height: 70px;
     display: flex;
@@ -18,10 +21,19 @@ nav {
     color: white;
     flex-wrap: wrap;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    padding: 30px 0;
 }
 nav a {
 
     color: rgb(34, 33, 33);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
 }
 
 
@@ -36,6 +48,14 @@ nav * {
 
 }
 
+@media only screen and (max-width: 600px) {
+    nav {
+        font-size: 10px;
+    }
+    .logo-text {
+        display: none !important;
+    }
+  }
 
 #hero {
     display: flex;
@@ -299,4 +319,93 @@ nav * {
     border-radius: 10px;
     background-color: #85BEC6;
     
+}
+
+
+.containerdetail {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    
+    margin: 10px;
+    padding: 5px;
+    background-color: #85BEC6;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.containerdetail button {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.detailimage {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+
+
+.detaildetail {
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    line-height: 1.5em;
+    font-size: 20px;
+
+}
+
+.filterbar {
+    background-color: rgb(130, 185, 220);
+    padding: 20px;
+}
+
+.filterbar a {
+    color: black;
+}
+
+
+
+.containerpurchase{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #85BEC6;
+    overflow: hidden;
+}
+.containerpurchase form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #85BEC6;
+    overflow: hidden;
+
+}
+
+
+.containerpurchase form input {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
 }

@@ -17,12 +17,12 @@ input.addEventListener("keyup", function(event) {
 
 if(page_type == 'age'){
 
-    fetch("http://localhost:8000/api/products/age")
+    fetch("/api/products/age")
     .then(res => res.json()).then(productlist => {
         for (let product of productlist) {
             let productHTML = `
             <div class="productbox">
-            <a href="/product.html?product=${product.product_id}">
+            <a href="/frontend/product.html?product=${product.product_id}">
                 <img src="${product.image}" alt="iphone">
                 <h3>${product.product_name}</h3>
                 <p>$${product.price}</p>
@@ -42,12 +42,12 @@ if(page_type == 'age'){
 } else if (page_type == 'price'){
     //sort by price
 
-    fetch("http://localhost:8000/api/products/price")
+    fetch("/api/products/price")
     .then(res => res.json()).then(productlist => {
         for (let product of productlist) {
             let productHTML = `
             <div class="productbox">
-            <a href="/product.html?product=${product.product_id}">
+            <a href="/frontend/product.html?product=${product.product_id}">
                 <img src="${product.image}" alt="iphone">
                 <h3>${product.product_name}</h3>
                 <p>$${product.price}</p>
@@ -64,12 +64,12 @@ if(page_type == 'age'){
 
 } else {
 
-    fetch("http://localhost:8000/api/products/all")
+    fetch("/api/products/all")
     .then(res => res.json()).then(productlist => {
         for (let product of productlist) {
             let productHTML = `
             <div class="productbox">
-            <a href="/product.html?product=${product.product_id}">
+            <a href="/frontend/product.html?product=${product.product_id}">
                 <img src="${product.image}" alt="iphone">
                 <h3>${product.product_name}</h3>
                 <p>$${product.price}</p>
@@ -92,7 +92,7 @@ searchbtn.addEventListener('click',(e)=>{
     e.preventDefault()
     let search_term = document.getElementById('search-product').value
     title.innerHTML = "Search Results for " + search_term
-    fetch("http://localhost:8000/api/products/search",{
+    fetch("/api/products/search",{
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -113,7 +113,7 @@ searchbtn.addEventListener('click',(e)=>{
         for (let product of productlist) {
             let productHTML = `
             <div class="productbox">
-            <a href="/product.html?product=${product.product_id}">
+            <a href="/frontend/product.html?product=${product.product_id}">
                 <img src="${product.image}" alt="iphone">
                 <h3>${product.product_name}</h3>
                 <p>$${product.price}</p>

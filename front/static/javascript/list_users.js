@@ -1,4 +1,5 @@
-fetch("http://localhost:8000/api/users/all")
+
+fetch("/api/users/all")
 .then(res => res.json())
 .then(userListHTML => {
     for (let user of userListHTML) {

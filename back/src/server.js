@@ -1,21 +1,20 @@
 import express from "express"
 import greetingsController from "./controllers/greetings.js"
 import cors from 'cors'
-import mysql from 'mysql'
 import userController from "./controllers/users.js"
 import productController from "./controllers/products.js"
 import featuresController from "./controllers/features.js"
 import session from "express-session"
-import bodyParser from "body-parser"
+import proxy from "express-http-proxy"
 
 
 
 const app = express()
-const corsOptions = {
-    origin: '*',  //Your Client, do not write '*'
-    credentials: true,
-};
-app.use(cors(corsOptions));
+
+// const corsOptions = {
+//     origin: 'http://localhost:8000',  //Your Client, do not write '*'
+// };
+// app.use(cors(corsOptions));
 
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -23,13 +22,24 @@ import { request } from "http"
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// let allowCrossDomain = function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', "*");
+//   res.header('Access-Control-Allow-Headers', "*");
+//   res.header('Access-Control-Allow-Methods', "*");
+//   res.header('Access-Control-Allow-Credentials', "true");
+//   res.header('access-control-expose-headers', 'Set-Cookie')
+//   next();
+// }
+// app.use(allowCrossDomain);
+app.use('/frontend', proxy('http://172.30.211.39:5501'));
 
-app.use(bodyParser.json())
 
 //Enable session middleware, This gives server sesstion object
+app.use(express.json())
 app.use(session({
-    secret: 'keyboardcat',
+    secret: 'keyboardsadasdcat',
     resave: false,
+    path: '/',
     saveUninitialized: false,
     cookie: {
         secure: false
@@ -42,20 +52,22 @@ const port = 8000
 app.use((req, res, next) => {
   const routes = {
       'unauthorised': [
-          "/style.css",
-        //   Delete this to allow all routes 3
+          "/api/users/session/status",
           "/api/users/login",
           "/api/products",
           "/api/products/all",
           "/api/users/all", 
-          "/api/users/create", 
           "/api/features",
           "/api/users", 
-          "/login",
-          "/images"
+          "/frontend/login.html",
+          "/frontend/index.html",
+          "/api/products/purchase",
+          "frontend/purchaseproduct.html",
 
       ],
       'admin':[
+          "/frontend/",
+          "/api/users/session/status",
           "/style.css",
           "/logout",
           "/create_users",
@@ -63,9 +75,27 @@ app.use((req, res, next) => {
           "/edit_users",
           "/delete_users",
           "/api/users",
+          "/api/users/create", 
+          "/frontend/",
+          "/style.css",
+          "/api/users/session/status",
+        //   Delete this to allow all routes 3
+          "/api/users/login",
+          "/api/products",
+          "/api/products/all",
+          "/api/users/all", 
+          "/api/features",
+          "/api/users", 
+          "/frontend/login",
+          "/frontend/images",
+          "/frontend/index.html",
+
+
 
       ],
       'employee':[
+        "/frontend/",
+        "/api/users/session/status",
           "/style.css",
           "/api/users/logout",
           "/logout",
@@ -95,7 +125,6 @@ app.use((req, res, next) => {
 
 
 
-app.use(express.json())
 
 app.use(express.static('views'))
 app.use(express.static('static'))
@@ -105,6 +134,7 @@ app.use('/api/greetings', greetingsController)
 app.use('/api/users', userController)
 app.use('/api/products', productController)
 app.use('/api/features', featuresController)
+
 
 
 

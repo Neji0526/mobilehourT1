@@ -8,7 +8,7 @@ console.log(id);
 
 
 
-fetch("http://localhost:8000/api/users/" + id)
+fetch("/api/users/" + id)
 .then(res => res.json()).then(product => {
 
 
@@ -45,7 +45,7 @@ fetch("http://localhost:8000/api/users/" + id)
 
     console.log(body)
    
-    fetch("http://localhost:8000/api/users/update", {
+    fetch("/api/users/update", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -53,6 +53,8 @@ fetch("http://localhost:8000/api/users/" + id)
         body: body
     }).then(res => res.json()).then(product => {
         console.log(product);
+        window.alert("User Updated")
+        window.location.href = "/frontend/index.html";
         // window.location.href = "/index.html";
     })
     })

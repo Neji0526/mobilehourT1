@@ -22,7 +22,7 @@ function sendData(e){
         "cameraspecs": "${cameraspecs}"
     }
     `
-    fetch("http://localhost:8000/api/features/create", {
+    fetch("/api/features/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

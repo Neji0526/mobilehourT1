@@ -44,3 +44,9 @@ export function updateProduct(name,feature_id,price,colour,year,image,stock,id){
 
 
 
+
+export function createProductPurchase(id,fname,lname,mobile,address1,address2){
+    
+    return db_conn.query("INSERT INTO `ecommerce`.`orders` (`product_id`, `firstname`, `lastname`, `mobile`, `addressln1`, `addressln2`) VALUES (?, ?, ?, ?, ?, ?);", [id,fname,lname,mobile,address1,address2])
+
+}

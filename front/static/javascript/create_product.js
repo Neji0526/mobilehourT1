@@ -6,7 +6,7 @@ btn.addEventListener("click", sendData);
 
 // fetch features
 let select = document.getElementById("feature_id");
-fetch("http://localhost:8000/api/features/all")
+fetch("/api/features/all")
 .then(res => res.json()).then(features => {
   for (features of features){
     let option = document.createElement("option");
@@ -39,7 +39,7 @@ function sendData(e){
   }
   `
 
-  fetch("http://localhost:8000/api/products/create", {
+  fetch("http://172.30.211.39:8000/api/products/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

@@ -6,7 +6,7 @@ console.log(id);
 
 
 
-fetch("http://localhost:8000/api/products/" + id)
+fetch("/api/products/" + id)
 .then(res => res.json()).then(product => {
 
 
@@ -23,11 +23,10 @@ fetch("http://localhost:8000/api/products/" + id)
   
     
     let productHTML = `
-    <div class="detailboxbox">
-    <div class="detailboximg">
+    <div class="detailimage">
         <img src="${product[0].image}" alt="iphone">
     </div>
-    <div class="detailboxboxbox">
+    <div class="detaildetail">
 
         <h2>${product[0].product_name}</h2>
         <p>$${product[0].price}</p>
@@ -44,8 +43,9 @@ fetch("http://localhost:8000/api/products/" + id)
         
         
 
-        Return to <a href="/store.html">Store</a>
-        <button>Purchase Phone</button>
+        Return to <a href="/frontend/store.html">Store</a>
+        <br/>
+        <button><a href='./purchaseproduct.html?productp=${product[0].product_id}'>Purchase Phone</a></button>
 
 
         </div>
@@ -53,9 +53,8 @@ fetch("http://localhost:8000/api/products/" + id)
 
 
 
-    </div>  
     `
-    document.getElementById("productdetail").innerHTML += productHTML
+    document.getElementById("containerdetail").innerHTML += productHTML
 
     }
 })

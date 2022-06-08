@@ -18,19 +18,24 @@ function sendData(e) {
     
    
 
+
+
     console.log(data);
   
-    fetch("http://localhost:8000/api/users/login", {
-        method: "POST",
+    // fetch("http://172.30.211.39:8000/api/users/login", {
+      fetch("/api/users/login", {
+        method: "POST", 
         headers: {
-          'Accept': 'application/json',
           'Content-Type': 'application/json',
+
         },
+        credentials: 'include',
         body: data,
       }).then(response => response.json())
       .then(data => {
         console.log('Success:', data);
-        window.alert(data)
+        window.alert(data.data)
+        window.location.href = "/frontend/index.html";
       })
       .catch((error) => {
         console.error('Error:', error);

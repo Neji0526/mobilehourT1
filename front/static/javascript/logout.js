@@ -1,18 +1,15 @@
-let btn = document.getElementById("logoutbtn");
 
 
-btn.addEventListener("click", function(e) {
-    fetch("/api/users/logout", {
+    fetch("/api/users/logout/user", {
         method: "POST"
         })
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
             window.alert(data)
-            location.href = "/"
+            location.href = "/frontend"
         }
         ).catch((error) => {
             console.error('Error:', error);
         }
         );
-})

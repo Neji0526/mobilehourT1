@@ -1,5 +1,6 @@
-import { updateProduct,getAllProductsSearch,getAllProductsPrice,getAllProductsAge,getAllProducts, getIdProducts,delIdProducts,createProduct } from "../models/products.js";
+import { createProductPurchase,updateProduct,getAllProductsSearch,getAllProductsPrice,getAllProductsAge,getAllProducts, getIdProducts,delIdProducts,createProduct } from "../models/products.js";
 import express from 'express';
+import validator from 'validator';
 
 const productController = express.Router()
 
@@ -72,7 +73,7 @@ productController.delete('/:id',(req,res)=>{
 productController.post('/create',(req,res)=>{
     let product = req.body
     console.log(product)
-    createProduct(product.name,product.feature_id,product.price,product.colour,product.year,product.image,product.stock)
+    createProduct(validator.escape(product.name),validator.escape(product.feature_id),validator.escape(product.price),validator.escape(product.colour),validator.escape(product.year),validator.escape(product.image),validator.escape(product.stock))
     .then(([results])=>{
         res.status(200).json(results)
     }).catch((err)=>{
@@ -87,7 +88,7 @@ productController.post('/create',(req,res)=>{
 productController.post('/update',(req,res)=>{
     let product = req.body
     console.log(product.id)
-    updateProduct(product.product_name,product.feature_id,product.price,product.colour,product.year,product.image,product.soh,product.product_id)
+    updateProduct(validator.escape(product.product_name),validator.escape(product.feature_id),validator.escape(product.price),validator.escape(product.colour),validator.escape(product.year),validator.escape(product.image),validator.escape(product.soh),validator.escape(product.product_id))
     .then(([results])=>{
         res.status(200).json(results)
     }).catch((err)=>{
@@ -96,9 +97,22 @@ productController.post('/update',(req,res)=>{
     )
 })
 
+productController.post('/purchase',(req,res)=>{
+    let product = req.body
+    console.log(product)
+    createProductPurchase(validator.escape(product.id),validator.escape(product.fname),validator.escape(product.lname),validator.escape(product.mobile),validator.escape(product.address1),validator.escape(product.address2))
+    .then(([results])=>{
+        res.status(200).json(results)
+    }).catch((err)=>{
+        console.log("error",err)
+    }
+
+    )
+}
+)
 
 
 
-
+// createProductPurchase(id,fname,lname,mobile,address1,address2)
 
 export default productController

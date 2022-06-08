@@ -40,7 +40,7 @@ function sendData(e) {
 
     console.log(data);
   
-    fetch("http://localhost:8000/api/users/create", {
+    fetch("/api/users/create", {
         method: "POST",
         headers: {
           'Accept': 'application/json',
