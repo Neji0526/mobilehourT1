@@ -24,7 +24,7 @@ fetch("/api/products/" + id)
     
     let productHTML = `
     <div class="detailimage">
-        <img src="${product[0].image}" alt="iphone">
+        <img class="imgdetail" src="${product[0].image}" alt="iphone">
     </div>
     <div class="detaildetail">
 

@@ -6,6 +6,7 @@ import productController from "./controllers/products.js"
 import featuresController from "./controllers/features.js"
 import session from "express-session"
 import proxy from "express-http-proxy"
+import ordersController from "./controllers/orders.js"
 
 
 
@@ -31,7 +32,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 //   next();
 // }
 // app.use(allowCrossDomain);
-app.use('/frontend', proxy('http://172.30.211.39:5501'));
+app.use('/frontend', proxy('http://localhost:5501'));
 
 
 //Enable session middleware, This gives server sesstion object
@@ -63,6 +64,7 @@ app.use((req, res, next) => {
           "/frontend/index.html",
           "/api/products/purchase",
           "frontend/purchaseproduct.html",
+        //   ^^ delete this
 
       ],
       'admin':[
@@ -89,6 +91,8 @@ app.use((req, res, next) => {
           "/frontend/login",
           "/frontend/images",
           "/frontend/index.html",
+          "/api/orders/all", 
+
 
 
 
@@ -99,6 +103,8 @@ app.use((req, res, next) => {
           "/style.css",
           "/api/users/logout",
           "/logout",
+          "/api/orders/all", 
+
       ]
   } 
   //establish the role of current user
@@ -134,6 +140,7 @@ app.use('/api/greetings', greetingsController)
 app.use('/api/users', userController)
 app.use('/api/products', productController)
 app.use('/api/features', featuresController)
+app.use('/api/orders', ordersController)
 
 
 

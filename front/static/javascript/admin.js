@@ -3,6 +3,7 @@
 
 let products = document.getElementById("products-admin");
 let users = document.getElementById("users");
+let orders = document.getElementById("orders-area");
 
 
 
@@ -28,7 +29,7 @@ fetch("/api/products/all")
 .then(res => res.json()).then(productlist => {
     for (let product of productlist) {
         let productHTML = `
-        <div class="productbox">
+        <div id="product-box" class="productbox">
          <a href="/frontend/product.html?product=${product.product_id}">
             <h3>${product.product_id}: ${product.product_name} $${product.price}</h3>
             </a> 
@@ -45,7 +46,7 @@ fetch("/api/users/all")
 .then(res => res.json()).then(userlist => {
     for (let user of userlist) {
         let userHTML = `
-        <div class="userbox">
+        <div id="users-box" class="productbox">
          
             <h3>ID: ${user.id} ${user.firstname} ${user.lastname}</h3>
             <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard2-fill" viewBox="0 0 16 16">
@@ -106,8 +107,21 @@ function deleteProduct(id){
 
 }
 
+// get all orders query
+fetch("/api/orders/all")
+.then(res => res.json()).then(userlist => {
+    for (let user of userlist) {
+        let userHTML = `
+        <div id="orders-box" class="productbox">
+         
+            <h3>Order ID: ${user.order_id}<br/> Product ID: ${user.product_id}<br/> ${user.firstname} ${user.lastname}</h3>
+            <h3>0${user.mobile}</h3>
+           
+        </div>  
+        `
+        orders.innerHTML += userHTML
+    }
+})
 
 
-function limitupdate(){
-  
-}
+

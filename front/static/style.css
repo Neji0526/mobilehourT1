@@ -90,6 +90,9 @@ nav * {
 
 .productbox {
     text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+
     
 }
 
@@ -130,6 +133,8 @@ nav * {
     align-items: center;
     height: 400px;
     color: white;
+    height: 100%;
+
 }
 
 .nf {
@@ -186,14 +191,14 @@ nav * {
 
 .containeradmin {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     text-align: center;
 }
 
 .containeradmin div {
-    width: 44vw;
+    width: 70vw;
 }
 
 
@@ -309,16 +314,26 @@ nav * {
 }
 
 #editproductform {
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 25px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #85BEC6;
+    width: 90vw;
+    
+    
+}
+
+#editproductform input {
     margin: 10px;
     padding: 5px;
     border: none;
     border-radius: 10px;
-    background-color: #85BEC6;
-    
 }
 
 
@@ -374,19 +389,25 @@ nav * {
     color: black;
 }
 
+.imgdetail {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 90%;
+}
 
 
 .containerpurchase{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 10px;
-    padding: 5px;
+    margin: 30px;
+    padding: 20px;
     border: none;
     border-radius: 10px;
     background-color: #85BEC6;
     overflow: hidden;
+
 }
 .containerpurchase form {
     display: flex;
@@ -409,3 +430,52 @@ nav * {
     border: none;
     border-radius: 10px;
 }
+
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #85BEC6;
+    overflow: hidden;
+}
+
+
+#users {
+    display: none;
+    
+}
+
+
+#users-btn, #products-btn, #orders-btn {
+
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    
+    
+}
+
+
+#orders-area {
+    background-color: #85BEC6;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 50px 0;
+    border-radius: 10px;
+    display: none;
+
+}
+
