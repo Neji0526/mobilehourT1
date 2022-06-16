@@ -50,16 +50,90 @@ fetch("/api/products/" + id)
 
     let btn = document.getElementById("subbutton");
     btn.addEventListener("click", function() {
+    let err = document.getElementById("errortext");
+    let product_id = document.getElementById("product_id").value;
+
+    let feature_id = document.getElementById("select").value;
+    let product_name = document.getElementById("name").value;
+    if (product_name == "") {
+        err.innerHTML = "Product name cannot be empty"
+        err.style.display = "block";
+        return;
+    }
+    let price = document.getElementById("price").value;
+    if (price == "") {
+        err.innerHTML = "Price cannot be empty"
+        err.style.display = "block";
+        return;
+    }
+    if (isNaN(price)) {
+        err.innerHTML = "Price must be a number"
+        err.style.display = "block";
+        return;
+    }
+    if (price < 0) {
+        err.innerHTML = "Price cannot be negative"
+        err.style.display = "block";
+        return;
+    }
+    let colour = document.getElementById("colour").value;
+    if (colour == "") {
+        err.innerHTML = "Colour cannot be empty"
+        err.style.display = "block";
+        return;
+    }
+    let year = document.getElementById("year").value;
+    if (year == "") {
+        err.innerHTML = "Year cannot be empty"
+        err.style.display = "block";
+        return;
+    }
+    if (isNaN(year)) {
+        err.innerHTML = "Year must be a number"
+        err.style.display = "block";
+        return;
+    }
+    if (year < 1980 || year > 2050) {
+        err.innerHTML = "Year must be between 1980 and 2050"
+        err.style.display = "block";
+        return;
+    }
+    let image = document.getElementById("image").value;
+    if (image == "") {
+        err.innerHTML = "Image cannot be empty"
+        err.style.display = "block";
+        return;
+    }
+    let stock = document.getElementById("stock").value;
+    if (stock == "") {
+        err.innerHTML = "Stock cannot be empty"
+        err.style.display = "block";
+        return;
+    }
+    if (isNaN(stock)) {
+        err.innerHTML = "Stock must be a number"
+        err.style.display = "block";
+        return;
+    }
+    if (stock < 0) {
+        err.innerHTML = "Stock cannot be negative"
+        err.style.display = "block";
+        return;
+    }
+
+
+
+
     body = `
     {
-        "product_id": "${document.getElementById("product_id").value}",
-        "feature_id": "${document.getElementById("select").value}",
-        "product_name": "${document.getElementById("name").value}",
-        "price": "${document.getElementById("price").value}",
-        "colour": "${document.getElementById("colour").value}",
-        "year": "${document.getElementById("year").value}",
-        "image": "${document.getElementById("image").value}",
-        "soh": "${document.getElementById("stock").value}"
+        "product_id": "${product_id}",
+        "feature_id": "${feature_id}",
+        "product_name": "${product_name}",
+        "price": "${price}",
+        "colour": "${colour}",
+        "year": "${year}",
+        "image": "${image}",
+        "soh": "${stock}"
     }`
    
     fetch("/api/products/update", {

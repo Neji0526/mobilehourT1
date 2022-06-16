@@ -25,7 +25,7 @@
 
         <form method="post">
             <input id="name" type="text" name="pname" placeholder="Product Name" minlength="4" maxlength="40" required>
-            <input id="year" type="number" minlength="4" maxlength="4" name="pyear" placeholder="Product Year" required>
+            <input id="year" type="text" minlength="4" maxlength="4" name="pyear" placeholder="Product Year" required>
             <input id="colour" type="text" name="colour" placeholder="Product Colour" required>
 
             <input id="price" type="number" name="pprice" placeholder="Product Price" required>
@@ -33,6 +33,8 @@
             <input id="stock" type="number" name="pstock" placeholder="Stock on Hand" required>
             <select name="feature_id" id="feature_id" required>
               </select>
+            <span id="errortext">Err</span>
+
             <button type="submit" id="btn">Submit</button>
         </form>
     </div>

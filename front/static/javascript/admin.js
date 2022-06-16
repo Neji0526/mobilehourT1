@@ -117,6 +117,7 @@ fetch("/api/orders/all")
             <h3>Order ID: ${user.order_id}<br/> Product ID: ${user.product_id}<br/> ${user.firstname} ${user.lastname}</h3>
             <h3>0${user.mobile}</h3>
             <h3>${user.addressln1}, ${user.addressln2}</h3>
+            <h3>Date Placed: ${user.date_placed}</h3>
            
         </div>  
         `

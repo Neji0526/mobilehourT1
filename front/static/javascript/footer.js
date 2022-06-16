@@ -28,7 +28,7 @@ footer.innerHTML = `
             <h1 class="logo-text">Links</h1>
             <ul>
                 <li>
-                    <a href="#">Home</a>
+                    <a href="/frontend">Home</a>
                 </li>   
                 
 

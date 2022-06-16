@@ -17,6 +17,9 @@ fetch("/api/products/" + id)
         <button><a href="/frontend">Return Home</a></button>
         `
     } else {
+
+
+
         info.innerHTML = `
         <h1>Product Details</h1>
         <p>Product ID: ${product[0].product_id}</p>
@@ -32,15 +35,53 @@ fetch("/api/products/" + id)
 btn.addEventListener("click", onSubmit);
 
 function onSubmit(e){
-
+let err = document.getElementById("errortext");
 
 e.preventDefault();
 
 let fname = document.getElementById("fname").value;
+if (fname == "") {
+    err.innerHTML = "Please enter your first name";
+    err.style.display = "block";
+
+    return;
+}
+
+
 let lname = document.getElementById("lname").value;
+if (lname == "") {
+    err.innerHTML = "Please enter your last name";
+    err.style.display = "block";
+    return;
+}
 let mobile = document.getElementById("mobile").value;
+if (mobile == "") {
+    err.innerHTML = "Please enter your mobile number";
+    err.style.display = "block";
+    return;
+}
+if (isNaN(mobile)) {
+    err.innerHTML = "Please enter a valid mobile number";
+    err.style.display = "block";
+    return;
+}
+if (mobile.length != 10) {
+    err.innerHTML = "Please enter a valid mobile number";
+    err.style.display = "block";
+    return;
+}
 let address1 = document.getElementById("address1").value;
+if (address1 == "") {
+    err.innerHTML = "Please enter your address line 1";
+    err.style.display = "block";
+    return;
+}
 let address2 = document.getElementById("address2").value;
+if (address2 == "") {
+    err.innerHTML = "Please enter your address line 2";
+    err.style.display = "block";
+    return;
+}
 
 
 fetch("/api/products/" + id)

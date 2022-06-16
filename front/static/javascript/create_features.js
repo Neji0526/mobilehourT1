@@ -2,15 +2,56 @@ let btn = document.getElementById("btn");
 
 btn.addEventListener("click", sendData);
 
+
+
+
+
+
 function sendData(e){
+    let err = document.getElementById("errortext");
     e.preventDefault();
     let length = document.querySelector("#length").value;
+    if (length == ""){
+        err.innerHTML = "Please enter a length";
+        err.style.display = "block";
+        return;
+    }   
     let width = document.querySelector("#width").value;
+    if (width == ""){
+        err.innerHTML = "Please enter a width";
+        err.style.display = "block";
+        return;
+    }
     let weight = document.querySelector("#weight").value;
+    if (weight == ""){
+        err.innerHTML = "Please enter a weight";
+        err.style.display = "block";
+        return;
+    }
     let charge = document.querySelector("#charge").value;
+    if (charge == ""){
+        err.innerHTML = "Please enter a charge";
+        err.style.display = "block";
+        return;
+    }
     let warranty = document.querySelector("#warranty").value;
+    if (warranty == ""){
+        err.innerHTML = "Please enter a warranty";
+        err.style.display = "block";
+        return;
+    }
     let cpu = document.querySelector("#cpu").value;
+    if (cpu == ""){
+        err.innerHTML = "Please enter a cpu";
+        err.style.display = "block";
+        return;
+    }
     let cameraspecs = document.querySelector("#cameraspecs").value;
+    if (cameraspecs == ""){
+        err.innerHTML = "Please enter the cameraspecs";
+        err.style.display = "block";
+        return;
+    }
     let body = `
     {
         "length": "${length}",
@@ -38,6 +79,7 @@ function sendData(e){
         document.querySelector("#warranty").value = "";
         document.querySelector("#cpu").value = "";
         document.querySelector("#cameraspecs").value = "";
+        err.style.display = "none";
     })
     
 }

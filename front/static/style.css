@@ -79,11 +79,12 @@ nav * {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    max-width: 100% !important;
 }
 
 
 #products * {
-    margin: 10px;
+    margin: 15px;
 }
 
 .productbox img {
@@ -95,7 +96,8 @@ nav * {
 .productbox {
     text-align: center;
     border-radius: 5px;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     
 }
@@ -490,3 +492,29 @@ nav * {
     border-radius: 10px;
 
 }
+
+#errortext {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    display: none;
+    border: none !important;
+}
+
+#product-box * {
+    max-width: 100%;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #orders-box h3, #users-box, #features-box h3 {
+        font-size: 12px;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    #products * {
+        margin: 0;
+    }
+  }
+

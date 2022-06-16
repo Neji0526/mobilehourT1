@@ -34,13 +34,60 @@ fetch("/api/users/" + id)
 
     let btn = document.getElementById("subbutton");
     btn.addEventListener("click", function() {
+
+    let err = document.getElementById("errortext");
+    let id = document.getElementById("id").value;
+    if (id != urlParams.get('user')){
+        err.innerHTML = "ID does not match"
+        err.style.display = "block";
+        return
+    }
+    let fname = document.getElementById("fname").value;
+    if (fname == "") {
+        err.innerHTML = "First name cannot be empty"
+        err.style.display = "block";
+        return
+    }
+    if (fname.length > 20) {
+        err.innerHTML = "First name cannot be longer than 20 characters"
+        err.style.display = "block";
+        return
+    }
+    let lname = document.getElementById("lname").value;
+    if (lname == "") {
+        err.innerHTML = "Last name cannot be empty"
+        err.style.display = "block";
+        return
+    }
+    if (lname.length > 20) {
+        err.innerHTML = "Last name cannot be longer than 20 characters"
+        err.style.display = "block";
+        return
+    }
+    let role = document.getElementById("role").value;
+    if (role == "") {
+        err.innerHTML = "Role cannot be empty"
+        err.style.display = "block";
+        return
+    }
+    
+    let username = document.getElementById("username").value;
+    if (username == "") {
+        err.innerHTML = "Username cannot be empty"
+        err.style.display = "block";
+        return
+    }
+
+
+
+
     let body = `
     {
-        "id": "${document.getElementById("id").value}",
-        "firstname": "${document.getElementById("fname").value}",
-        "lastname": "${document.getElementById("lname").value}",
-        "role": "${document.getElementById("role").value}",
-        "username": "${document.getElementById("username").value}"
+        "id": "${id}",
+        "firstname": "${fname}",
+        "lastname": "${lname}",
+        "role": "${role}",
+        "username": "${username}"
     }`
 
     console.log(body)

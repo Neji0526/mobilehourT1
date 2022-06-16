@@ -27,8 +27,13 @@
     
        <label>First Name</label><input id="fname" name="fname" value="">
        <label>Last Name</label><input id="lname" name="lname" value="">
-       <label>Role</label><input id="role" name="role" value="">
+       <label>Role</label>
+       <select name="role" id="role">
+        <option value="admin">Admin</option>
+        <option value="Employee">Employee</option>
+       </select>
         <label>Username</label><input id="username" name="username" value="">
+        <span id="errortext">err</span>
         <input id="subbutton" type="button" value="Update">
         </form>
 

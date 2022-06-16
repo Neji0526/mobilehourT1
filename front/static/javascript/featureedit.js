@@ -37,17 +37,150 @@ btn.addEventListener("click", submit)
 
 function submit(){
     console.log("clicked")
+
+    let err = document.getElementById("errortext");
     let feature_id = document.getElementById("feature_id").value;
+    if (feature_id == "") {
+        err.innerHTML = "Feature ID cannot be empty"
+        err.style.display = "block";
+        return;
+
+    }
+    if (feature_id != urlParams.get('feature')) {
+        err.innerHTML = "Feature ID cannot be changed"
+        err.style.display = "block";
+        return;
+
+    }
+    let length = document.getElementById("length").value;
+    if (length == "") {
+        err.innerHTML = "Length cannot be empty"
+        err.style.display = "block";
+        return;
+
+    }
+    if (isNaN(length)) {
+        err.innerHTML = "Length must be a number"
+        err.style.display = "block";
+        return;
+
+    }
+
+    if (length < 0) {
+        err.innerHTML = "Length cannot be negative"
+        err.style.display = "block";
+        return;
+
+    }
+
+    let width = document.getElementById("width").value;
+    if (width == "") {
+        err.innerHTML = "Width cannot be empty"
+        err.style.display = "block";
+        return;
+
+    }
+    if (isNaN(width)) {
+        err.innerHTML = "Width must be a number"
+        err.style.display = "block";
+        return;
+
+    }
+    if (width < 0) {
+        err.innerHTML = "Width cannot be negative"
+        err.style.display = "block";
+        return;
+
+    }
+
+    let weight = document.getElementById("weight").value;
+    if (weight == "") {
+        err.innerHTML = "Weight cannot be empty"
+        err.style.display = "block";
+        return;
+
+    }
+    if (isNaN(weight)) {
+        err.innerHTML = "Weight must be a number"
+        err.style.display = "block";
+        return;
+
+    }
+    if (weight < 0) {
+        err.innerHTML = "Weight cannot be negative"
+        err.style.display = "block";
+        return;
+
+    }
+
+    let charge = document.getElementById("charge").value;
+    if (charge == "") {
+        err.innerHTML = "Charge cannot be empty"
+        err.style.display = "block";
+        return;
+
+    }
+    if (isNaN(charge)) {
+        err.innerHTML = "Charge must be a number"
+        err.style.display = "block";
+        return;
+
+    }
+    if (charge < 0) {
+        err.innerHTML = "Charge cannot be negative"
+        err.style.display = "block";
+        return;
+
+    }
+    let warranty = document.getElementById("warranty").value;
+    if (warranty == "") {
+        err.innerHTML = "Warranty cannot be empty"
+        err.style.display = "block";
+        return;
+
+    }
+    if (isNaN(warranty)) {
+        err.innerHTML = "Warranty must be a number"
+        err.style.display = "block";
+        return;
+
+    }
+    if (warranty < 0) {
+        err.innerHTML = "Warranty cannot be negative"
+        err.style.display = "block";
+        return;
+
+    }
+
+    let cpu = document.getElementById("cpu").value;
+    if (cpu == "") {
+        err.innerHTML = "CPU cannot be empty"
+        err.style.display = "block";
+        return;
+
+    }
+
+    let cameraspecs = document.getElementById("cameraspecs").value;
+    if (cameraspecs == "") {
+        err.innerHTML = "Camera Specs cannot be empty"
+        err.style.display = "block";
+        return;
+    }
+
+
+
+
+
 
     let body = {
-        "feature_id": document.getElementById("feature_id").value,
-        "length": document.getElementById("length").value,
-        "width": document.getElementById("width").value,
-        "weight": document.getElementById("weight").value,
-        "charge": document.getElementById("charge").value,
-        "warranty": document.getElementById("warranty").value,
-        "cpu": document.getElementById("cpu").value,
-        "cameraspecs": document.getElementById("cameraspecs").value
+        "feature_id": feature_id,
+        "length": length,
+        "width": width,
+        "weight": weight,
+        "charge": charge,
+        "warranty": warranty,
+        "cpu": cpu,
+        "cameraspecs": cameraspecs
     }
     console.log(body)
     fetch("/api/features/update/"  + feature_id, {
