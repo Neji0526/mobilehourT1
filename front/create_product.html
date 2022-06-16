@@ -24,13 +24,14 @@
         <h1 class="center">Create Product</h1>
 
         <form method="post">
-            <input id="name" type="text" name="pname" placeholder="Product Name">
-            <input id="year" type="number" minlength="4" maxlength="4" name="pyear" placeholder="Product Year">
-            <input id="colour" type="text" name="colour" placeholder="Product Colour">
+            <input id="name" type="text" name="pname" placeholder="Product Name" minlength="4" maxlength="40" required>
+            <input id="year" type="number" minlength="4" maxlength="4" name="pyear" placeholder="Product Year" required>
+            <input id="colour" type="text" name="colour" placeholder="Product Colour" required>
 
-            <input id="price" type="number" name="pprice" placeholder="Product Price">
-            <input id="stock" type="number" name="pstock" placeholder="Stock on Hand">
-            <select name="feature_id" id="feature_id">
+            <input id="price" type="number" name="pprice" placeholder="Product Price" required>
+            <input id="image" type="text" name="pimage" placeholder="Product Image" required>
+            <input id="stock" type="number" name="pstock" placeholder="Stock on Hand" required>
+            <select name="feature_id" id="feature_id" required>
               </select>
             <button type="submit" id="btn">Submit</button>
         </form>

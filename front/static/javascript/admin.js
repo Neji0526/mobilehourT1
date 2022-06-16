@@ -116,12 +116,59 @@ fetch("/api/orders/all")
          
             <h3>Order ID: ${user.order_id}<br/> Product ID: ${user.product_id}<br/> ${user.firstname} ${user.lastname}</h3>
             <h3>0${user.mobile}</h3>
+            <h3>${user.addressln1}, ${user.addressln2}</h3>
            
         </div>  
         `
         orders.innerHTML += userHTML
     }
 })
+
+let features = document.getElementById("features-area");
+//get all features query
+fetch("/api/features/all")
+.then(res => res.json()).then(userlist => {
+    for (let user of userlist) {
+        let userHTML = `
+        <div id="features-box" class="productbox">
+         
+            <h3>Feature ID: ${user.feature_id}<br/> ${user.length}mm x ${user.width}mm<br/> ${user.weight}g</h3>
+            <h3>Warrenty: ${user.warranty} years</h3>
+            <h3>Cpu: ${user.cpu}</h3>
+            <button id="delbuttonfeature" onClick="DelFeature(${user.feature_id})">Delete Feature ${user.feature_id}</a></button>
+            <button id="editfeaturebtn"><a href="./featureedit.html?feature=${user.feature_id}">Edit Feature ${user.feature_id}</button>
+           
+        </div>  
+        `
+        features.innerHTML += userHTML
+    }
+}
+)
+
+function DelFeature(id){
+  if(confirm("Are you sure you would like to delete feature id " + id + "?")){
+    fetch("/api/features/delete/" + id, {
+      method: "DELETE",
+      
+    }).then(response => response.json())
+    .then(data => {
+      console.log("Success:", data);
+      location.reload();
+      window.alert("Feature deleted successfully");
+     
+   
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+  else{
+    return false;
+  }
+
+}
+
+
 
 
 

@@ -22,39 +22,50 @@ fetch("/api/features/all")
 
 function sendData(e){
   e.preventDefault();
+
+
+
+
+
+
   let name = document.querySelector("#name").value;
   let feature_id = document.querySelector("#feature_id").value;
   let colour = document.querySelector("#colour").value;
   let year = document.querySelector("#year").value;
   let price = document.querySelector("#price").value;
+  let image = document.querySelector("#image").value;
   let stock = document.querySelector("#stock").value;
-  let body = `
-  {
-    "name": "${name}",
-    "feature_id": "${feature_id}",
-    "price": "${price}",
-    "colour": "${colour}",
-    "year": "${year}",
-    "stock": "${stock}"
+  let body = {
+    "name": name,
+    "feature_id": feature_id,
+    "price": price,
+    "colour": colour,
+    "year": year,
+    "image": image,
+    "stock": stock
   }
-  `
+  
 
   fetch("/api/products/create", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: body
+    body: JSON.stringify(body)
   })
   .then(res => res.json()).then(data => {
     console.log(data);
     document.querySelector("#name").value = "";
-    document.querySelector("#feature_id").value = "";
+    document.querySelector("#feature_id").value = "1";
     document.querySelector("#colour").value = "";
     document.querySelector("#year").value = "";
     document.querySelector("#price").value = "";
+    document.querySelector("#image").value = "";
     document.querySelector("#stock").value = "";
+    window.alert("Product created!");
+    window.href = "/products";
   })
+
 
 
 

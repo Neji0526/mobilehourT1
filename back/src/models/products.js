@@ -6,9 +6,8 @@ export function getAllProducts(){
 }
 
 export function getIdProducts(id){
-    return db_conn.query("SELECT *,DATE_FORMAT(creation_date, '%d/%m/%Y') date FROM products INNER JOIN features ON products.feature_id = products.feature_id WHERE product_id = ?",[id])
+    return db_conn.query("SELECT *,DATE_FORMAT(creation_date, '%d/%m/%Y') date FROM products INNER JOIN features ON products.feature_id = features.feature_id WHERE product_id = ? LIMIT 1",[id])
     
-
 }
 
 
@@ -31,7 +30,7 @@ export function getAllProductsSearch(term){
 
 export function createProduct(name,feature_id,price,colour,year,image,stock){
     
-    return db_conn.query("INSERT INTO `ecommerce`.`products` (`product_name`,`feature_id`, `price`, `colour`, `year`, `soh`) VALUES (?,?,?,?,?,?)",[name,feature_id,price,colour,year,stock])
+    return db_conn.query("INSERT INTO `ecommerce`.`products` (`product_name`,`feature_id`, `price`, `colour`, `year`,`image`, `soh`) VALUES (?,?,?,?,?,?,?)",[name,feature_id,price,colour,year,image,stock])
 
 }
 

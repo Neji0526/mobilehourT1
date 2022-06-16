@@ -73,7 +73,7 @@ productController.delete('/:id',(req,res)=>{
 productController.post('/create',(req,res)=>{
     let product = req.body
     console.log(product)
-    createProduct(validator.escape(product.name),product.feature_id,validator.escape(product.price),validator.escape(product.colour),validator.escape(product.year),validator.escape(product.image),validator.escape(product.stock))
+    createProduct(validator.escape(product.name),product.feature_id,validator.escape(product.price),validator.escape(product.colour),validator.escape(product.year),product.image,validator.escape(product.stock))
     .then(([results])=>{
         res.status(200).json(results)
     }).catch((err)=>{

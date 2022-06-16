@@ -19,9 +19,9 @@ fetch("/api/products/" + id)
         <button><a href="/frontend">Return Home</a></button>
         `
     } else {
+    console.log(product[0])
 
     document.getElementById("product_id").value = product[0].product_id;
-    document.getElementById("feature_id").value = product[0].feature_id;
     document.getElementById("name").value = product[0].product_name;
     document.getElementById("price").value = product[0].price;
     document.getElementById("colour").value = product[0].colour;
@@ -29,18 +29,31 @@ fetch("/api/products/" + id)
     document.getElementById("image").value = product[0].image;
     document.getElementById("stock").value = product[0].soh;
 
-    
-    
-    
+    let sel = document.getElementById('select')
+    sel.innerHTML = `<option value="${product[0].feature_id}">${product[0].feature_id}</option>`
     
 
+    fetch("/api/features/all")
+    .then(res => res.json())
+    .then(features => {
+        for (let feature of features) {
+            let featureHTML = `
+            <option value="${feature.feature_id}">${feature.feature_id} - ${feature.cameraspecs} ${feature.length}x${feature.width}</option>
+            `
+            sel.innerHTML += featureHTML
+        }
+    })
+    }
+})
+    
+    
 
     let btn = document.getElementById("subbutton");
     btn.addEventListener("click", function() {
     body = `
     {
         "product_id": "${document.getElementById("product_id").value}",
-        "feature_id": "${document.getElementById("feature_id").value}",
+        "feature_id": "${document.getElementById("select").value}",
         "product_name": "${document.getElementById("name").value}",
         "price": "${document.getElementById("price").value}",
         "colour": "${document.getElementById("colour").value}",
@@ -59,6 +72,5 @@ fetch("/api/products/" + id)
         console.log(product);
         window.location.href = "/frontend/index.html";
     })
-    })
     }
-})
+    )

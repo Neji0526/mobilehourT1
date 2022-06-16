@@ -35,11 +35,14 @@ fetch("/api/products/" + id)
         <p>Listing Date: ${product[0].date}</p>
         <p>Stock: ${product[0].soh}</p>
         <p>StockID: ${product[0].product_id}</p>
+        <br>
         <h2>Features</h2>
         <p>Size: ${product[0].length}mm x ${product[0].width}mm</p>
         <p>Weight: ${product[0].weight}g</p>
         <p>Battery: ${product[0].charge}</p>
         <p>Camera: ${product[0].cameraspecs}</p>
+        <p>CPU: ${product[0].cpu}</p>
+        <p>Warranty: ${product[0].warranty} Years</p>
         
         
 
