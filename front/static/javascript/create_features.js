@@ -16,9 +16,30 @@ function sendData(e){
         err.style.display = "block";
         return;
     }   
+    if (isNaN(length)){
+        err.innerHTML = "Please enter a number";
+        err.style.display = "block";
+        return;
+    }
+    if (length < 0){
+        err.innerHTML = "Please enter a positive length";
+        err.style.display = "block";
+        return;
+    }
+
     let width = document.querySelector("#width").value;
     if (width == ""){
         err.innerHTML = "Please enter a width";
+        err.style.display = "block";
+        return;
+    }
+    if (isNaN(width)){
+        err.innerHTML = "Please enter a number";
+        err.style.display = "block";
+        return;
+    }
+    if (width < 0){
+        err.innerHTML = "Please enter a positive width";
         err.style.display = "block";
         return;
     }
@@ -28,15 +49,45 @@ function sendData(e){
         err.style.display = "block";
         return;
     }
+    if (isNaN(weight)){
+        err.innerHTML = "Please enter a number";
+        err.style.display = "block";
+        return;
+    }
+    if (weight < 0){
+        err.innerHTML = "Please enter a positive weight";
+        err.style.display = "block";
+        return;
+    }
     let charge = document.querySelector("#charge").value;
     if (charge == ""){
         err.innerHTML = "Please enter a charge";
         err.style.display = "block";
         return;
     }
+    if (isNaN(charge)){
+        err.innerHTML = "Please enter a number";
+        err.style.display = "block";
+        return;
+    }
+    if (charge < 0){
+        err.innerHTML = "Please enter a positive charge";
+        err.style.display = "block";
+        return;
+    }
     let warranty = document.querySelector("#warranty").value;
     if (warranty == ""){
         err.innerHTML = "Please enter a warranty";
+        err.style.display = "block";
+        return;
+    }
+    if (isNaN(warranty)){
+        err.innerHTML = "Please enter a number";
+        err.style.display = "block";
+        return;
+    }
+    if (warranty < 0){
+        err.innerHTML = "Please enter a positive warranty";
         err.style.display = "block";
         return;
     }
