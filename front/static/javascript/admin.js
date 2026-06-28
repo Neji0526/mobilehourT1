@@ -8,6 +8,8 @@ let orders = document.getElementById("orders-area");
 
 
 
+
+
 fetch('/api/users/session/status').then(res => res.json())
 .then(data => {
     console.log(data)
@@ -21,7 +23,6 @@ fetch('/api/users/session/status').then(res => res.json())
         window.location.href = "/frontend"
     }
 })
-
 
 //get all products query
 fetch("/api/products/all")
@@ -41,6 +42,7 @@ fetch("/api/products/all")
     }
 })
 
+// this is test comment
 //get all users query
 fetch("/api/users/all")
 .then(res => res.json()).then(userlist => {
